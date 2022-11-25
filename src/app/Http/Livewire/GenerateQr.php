@@ -30,8 +30,12 @@ class GenerateQr extends Component
             return false;
         }
         $user = $user->first();
-        return response()->streamDownload(function () use ($user) {
-            echo QrCode::size(1000)->format('png')->gradient(5, 18, 135, 46, 60, 163, 'diagonal')->generate($user->fullname."_".time());
-        }, 'CELEC-HUAWEI-'.$user->fullname."-QR.png");
+        $filename = 'CELEC-HUAWEI-'.$user->fullname."-QR.png";
+        $qrContent = $user->fullname."_".time();
+        QrCode::size(1000)->format('png')->gradient(5, 18, 135, 46, 60, 163, 'diagonal')->generate($qrContent, public_path('qrs/'.$filename));
+        return response()->download(public_path('qrs/'.$filename));
+        // return response()->streamDownload(function () use ($user) {
+        //     echo QrCode::size(1000)->format('png')->gradient(5, 18, 135, 46, 60, 163, 'diagonal')->generate($user->fullname."_".time());
+        // }, 'CELEC-HUAWEI-'.$user->fullname."-QR.png");
     }
 }
