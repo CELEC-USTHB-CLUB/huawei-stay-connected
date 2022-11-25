@@ -15,12 +15,12 @@ class UsersImport implements ToModel
     public function model(array $row)
     {
         return new User([
-            'fullname' => $row[2],
-            'email' => ($row[1] !== null ) ? $row[1] : $row[3],
-            'study_level' => $row[4],
-            'specialite' => $row[5],
-            'is_usthb' => $row[6],
-            'is_celec' => $row[7],
+            'fullname' => $row[0],
+            'email' => $row[1],
+            'study_level' => $row[2],
+            'specialite' => $row[3],
+            'is_usthb' => $row[4],
+            'is_celec' => $row[5],
         ]);
     }
 }
