@@ -19,8 +19,8 @@ Route::post('generate', function (Request $request) {
     $user = $user->first();
     $filename = 'CELEC-HUAWEI-' . $user->fullname . "-QR.png";
     $qrContent = $user->fullname . "_" . time();
-    QrCode::size(1000)->format('png')->gradient(5, 18, 135, 46, 60, 163, 'diagonal')->generate($qrContent, public_path('qrs/' . $filename));
-    return response()->download(public_path('qrs/' . $filename));
+    QrCode::size(1000)->format('png')->gradient(5, 18, 135, 46, 60, 163, 'diagonal')->generate($qrContent, storage_path('qrs/' . $filename));
+    return response()->download(storage_path('qrs/' . $filename));
 });
 Route::get('/importUsers', function () {
     return view('import');
