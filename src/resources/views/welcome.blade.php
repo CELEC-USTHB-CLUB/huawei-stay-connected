@@ -15,7 +15,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg" sizes="32x32" href="./Image/Landing.svg" />
-    <title>CELEC - Go Network</title>
+    <title>CELEC Huawei conference</title>
     @livewireStyles
 </head>
 
@@ -48,6 +48,13 @@
                 <p>
                     A QR code will be downloaded, this QR code is your ticket to enter
                     the event you must gard it and present it at the entry
+                </p>
+            </div>
+            <div class="remarque">
+                <p>
+                    <i>Hosted by:</i>
+                    <br/>
+                    <a href="https://adexcloud.dz/"><img style="width: 250px;" src="./Image/adex.png" alt="" /></a>
                 </p>
             </div>
         </div>

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'specialite',
         'is_usthb',
         'is_celec',
+        'checks'
     ];
 
 }

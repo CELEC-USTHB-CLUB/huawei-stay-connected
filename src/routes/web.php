@@ -13,3 +13,5 @@ Route::get('/importUsers', function() {
 });
 
 Route::POST('import', [UserController::class, 'import']);
+
+Route::GET("users/check/{id}", [UserController::class, "verify"]);
