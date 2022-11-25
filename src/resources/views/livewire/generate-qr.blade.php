@@ -4,15 +4,10 @@
             <input type="email" id="email" placeholder=" " class="form-input" name="email" wire:model.debounce.500ms="email" required />
             <label for="email">Your registration Email</label>
         </div>
-        @error('email')
-        <div class="alert alert-danger" role="alert">
-            {{$message}}
-        </div>
-        @enderror
-        @if($userErr)
-        <div class="alert alert-danger" role="alert">
-            {{$userErr}}
-        </div>
+        @if(session()->has('error'))
+            <div class="alert alert-danger" role="alert">
+                {{  session('error') }}
+            </div>
         @endif
         <div class="submit-btn">
             <button type="submit" value="Submit">

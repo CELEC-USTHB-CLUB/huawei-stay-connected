@@ -38,7 +38,33 @@
             <div class="form">
                 <div class="text">
                     <h1><span>HUAWEI</span> Conference</h1>
-                    @livewire('generate-qr')
+                    {{-- @livewire('generate-qr') --}}
+                    <form action="{{ url('generate') }}" method="POST" wire:submit.prevent="submit">
+                        @csrf
+                        <div class="input-info">
+                            <input type="email" id="email" placeholder=" " class="form-input" name="email"
+                                wire:model.debounce.500ms="email" required />
+                            <label for="email">Your registration Email</label>
+                        </div>
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        <div class="submit-btn">
+                            <button type="submit" value="Submit">
+                                <h5>
+                                    Generate
+                                    <div wire:loading wire:target="submit">
+                                        <div class="spinner-border text-danger" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </h5>
+                            </button>
+
+                        </div>
+                    </form>
                 </div>
                 <div class="image">
                     <img src="./Image/Huawei_Logo.png" alt="" />
@@ -53,17 +79,18 @@
             <div class="remarque">
                 <p>
                     <i>Hosted by:</i>
-                    <br/>
+                    <br />
                     <a href="https://adexcloud.dz/"><img style="width: 250px;" src="./Image/adex.png" alt="" /></a>
                 </p>
             </div>
         </div>
     </div>
-    
+
 </body>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
-    @livewireScripts
+@livewireScripts
+
 </html>
